@@ -2,7 +2,7 @@ from Banco import Banco
 
 class Usuarios(object):
 
-    def __init__(self, idusuario = 0, nome = '',  celular = '', email = '', usuario = '', senha = ''):
+    def __init__(self, idusuario = 0, nome = ' ',  celular = ' ', email = ' ', usuario = ' ', senha = ' '):
         self.info = {}
         self.idusuario = idusuario
         self.nome = nome
@@ -18,14 +18,14 @@ class Usuarios(object):
 
             c = banco.conexao.cursor()
 
-            c.execute("isnsert  into ususario (nome, celular, email, usuario, senha) values ('" + self.nome + "', '" + self.celular + "', '" + self.email + "', '" + self.usuariio + "', '" + self.senha + "')")
+            c.execute("isnsert  into ususario (nome, celular, email, usuario, senha) values ('" + self.nome + "', '" + self.celular + "', '" + self.email + "', '" + self.usuario + "', '" + self.senha + "')")
 
             banco.conexao.commit()
-            c.clese()
+            c.close()
 
             return "Usuário cadastrado com sucesso!"
         except:
-            return "Ocorreu um erro na isnserção do usuário"
+            return "Ocorreu um erro na inserção do usuário"
 
     def updateUser(self):
 
@@ -34,7 +34,7 @@ class Usuarios(object):
 
             c = banco.conexao.cursor()
 
-            c.execute("update usuario set nome = '" + self.nome + "', '" + self.celular + "', '" + self.email + "', '" + self.usuario + "', '" + self.senha + "' "'where idusuario = " + self.idusuario + "')
+            c.execute("update usuario set nome = '" + self.nome + "', celular = '" + self.celular + "', email = '" + self.email + "', usuario = '" + self.usuario + "', senha = '" + self.senha + "', where idusuario = " + self.idusuario + " ")
 
             banco.conexao.commit()
             c.close()

@@ -1,5 +1,6 @@
 #importando modulo do sql
 import sqlite3
+
 class Banco():
 
     def __init__(self):
@@ -7,7 +8,7 @@ class Banco():
         self.createTable()
 
     def createTable(self):
-        c = self.conexao.cursos()
+        c = self.conexao.cursor()
 
         c.execute("""create table if not exists  usuarios (
             idusuario integer primary key autoincrement,
