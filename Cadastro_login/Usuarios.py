@@ -1,4 +1,5 @@
 from Banco import Banco
+import sqlite3
 
 class Usuarios(object):
 
@@ -16,12 +17,12 @@ class Usuarios(object):
         banco = Banco()
         try:
 
-            c = banco.conexao.cursor()
+            conn = banco.conexao.cursor()
 
-            c.execute("isnsert  into ususario (nome, celular, email, usuario, senha) values ('" + self.nome + "', '" + self.celular + "', '" + self.email + "', '" + self.usuario + "', '" + self.senha + "')")
+            conn.execute("INSERT  into Usuarios (nome, celular, email, usuario, senha) values ('" + self.nome + "', '" + self.celular + "', '" + self.email + "', '" + self.usuario + "', '" + self.senha + "')")
 
             banco.conexao.commit()
-            c.close()
+            conn.close()
 
             return "Usuário cadastrado com sucesso!"
         except:
@@ -32,12 +33,12 @@ class Usuarios(object):
         banco = Banco()
         try:
 
-            c = banco.conexao.cursor()
+            conn = banco.conexao.cursor()
 
-            c.execute("update usuario set nome = '" + self.nome + "', celular = '" + self.celular + "', email = '" + self.email + "', usuario = '" + self.usuario + "', senha = '" + self.senha + "', where idusuario = " + self.idusuario + " ")
+            conn.execute("update Usuarios set nome = '" + self.nome + "', celular = '" + self.celular + "', email = '" + self.email + "', usuario = '" + self.usuario + "', senha = '" + self.senha + "', where idusuario = " + self.idusuario + " ")
 
             banco.conexao.commit()
-            c.close()
+            conn.close()
 
             return "Usuário atualizado com sucesso!"
         except:
@@ -48,12 +49,12 @@ class Usuarios(object):
         banco = Banco()
         try:
 
-            c = banco.conexao.cursor()
+            conn = banco.conexao.cursor()
         
-            c.execute("delete from usuario where idusuario = " + self.idusuario + "")
+            conn.execute("delete from Usuarios where idusuario = " + self.idusuario + "")
 
             banco.conexao.commit()
-            c.close()
+            conn.close()
 
             return "Usuário excluido co sucesso!"
         except:
@@ -63,11 +64,11 @@ class Usuarios(object):
         banco = Banco()
         try:
 
-            c = banco.conexao.cursor()
+            conn = banco.conexao.cursor()
         
-            c.execute("select * from usuario where idususario = " + idusuario + "")
+            conn.execute("select * from usuario where idususario = " + idusuario + "")
 
-            for linha in  c:
+            for linha in  cursor:
                 self.idusuario = linha[0]
                 self.nome = linha[1]
                 self.celular = linha[2]
@@ -75,7 +76,7 @@ class Usuarios(object):
                 self.usuario = linha[4]
                 self.senha = linha[5]
 
-            c.close()
+            conn.close()
 
             return "Busca feita com sucesso!"
         except:

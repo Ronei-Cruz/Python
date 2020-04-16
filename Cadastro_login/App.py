@@ -1,7 +1,6 @@
-from tkinter import *
 from Usuarios import Usuarios
-
-class Application:
+from tkinter import *
+class Application():
     def __init__(self, master=None):
         self.font = ("Verdana", "8")
 
