@@ -55,7 +55,7 @@ class Application():
         self.bntBuscar['text'] = 'Buscar' 
         self.bntBuscar['font'] = self.font
         self.bntBuscar['width'] = 10
-        self.bntBuscar['command'] = self.buscarUsuario
+        self.bntBuscar['command'] = self.selectUser
         self.bntBuscar.pack(side=RIGHT)
 
         self.lblnome = Label(self.container3, text = 'Nome:',
@@ -106,24 +106,24 @@ class Application():
 
         self.bntInsert = Button(self.container8, text = 'Iserir', 
         font = self.font, width = 12)
-        self.bntInsert['command'] = self.inserirUsuario
+        self.bntInsert['command'] = self.insertUser
         self.bntInsert.pack(side=LEFT)
 
         self.bntAlterar = Button(self.container8, text = 'Alterar', 
         font = self.font, width = 12)
-        self.bntAlterar['command'] = self.alterarUsuario
+        self.bntAlterar['command'] = self.updateUser
         self.bntAlterar.pack(side=LEFT)
 
         self.bntExcluir = Button(self.container8, text = 'Excluir',
         font = self.font, width = 12)
-        self.bntExcluir['command'] = self.excluirUsuario
+        self.bntExcluir['command'] = self.deleteUser
         self.bntExcluir.pack(side=LEFT)
 
         self.lblmsg = Label(self.container9, text = '')
         self.lblmsg['font'] = ('Verdana', '9', 'italic')
         self.lblmsg.pack()
 
-    def inserirUsuario(self):
+    def insertUser(self):
         user = Usuarios()
 
         user.nome = self.txtnome.get()
@@ -141,7 +141,7 @@ class Application():
         self.txtusuario.delete(0, END)
         self.txtsenha.delete(0, END)
 
-    def alterarUsuario(self):
+    def updateUser(self):
         user = Usuarios()
 
         user.idususario = self.txtidusuario.get()
@@ -160,7 +160,7 @@ class Application():
         self.txtusuario.delete(0, END)
         self.txtsenha.delete(0, END)
 
-    def excluirUsuario(self):
+    def deleteUser(self):
         user = Usuarios()
 
         user.idusuario = self.txtidusuario.get()
@@ -174,7 +174,7 @@ class Application():
         self.txtusuario.delete(0, END)
         self.txtsenha.delete(0, END)
 
-    def buscarUsuario(self):
+    def selectUser(self):
         user  = Usuarios()
 
         idusuario = self.txtidusuario.get()

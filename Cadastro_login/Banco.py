@@ -1,7 +1,7 @@
 #importando modulo do sql
 import sqlite3
 
-class Banco():
+class Banco(object):
     
     def __init__(self):
         self.conexao = sqlite3.connect('banco.db')
