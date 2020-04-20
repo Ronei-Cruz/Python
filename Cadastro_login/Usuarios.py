@@ -56,7 +56,7 @@ class Usuarios(object):
             banco.conexao.commit()
             conn.close()
 
-            return "Usuário excluido co sucesso!"
+            return "Usuário excluido com sucesso!"
         except:
             return "Ocorreu um erro na exclusão do usuário"
 
@@ -66,7 +66,7 @@ class Usuarios(object):
 
             conn = banco.conexao.cursor()
         
-            conn.execute("select * from usuario where idususario = " + idusuario + "")
+            conn.execute("select * from usuario where idususario = " + self.idusuario + "")
 
             for linha in  cursor:
                 self.idusuario = linha[0]

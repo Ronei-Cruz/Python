@@ -18,6 +18,5 @@ class Banco():
             usuario text,
             senha text)""")
 
-
         self.conexao.commit()
         conn.close()
