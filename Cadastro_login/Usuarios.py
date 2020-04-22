@@ -80,4 +80,8 @@ class Usuarios(object):
 
             return "Busca feita com sucesso!"
         except:
+<<<<<<< HEAD
             return "Ocorreu um erro na busca do usuário"
+=======
+            return "Ocorreu um erro na busca do usuário"
+>>>>>>> 04e8b588ca25aea6f42de4fe874a1748d356f84c
