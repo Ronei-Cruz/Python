@@ -80,4 +80,4 @@ class Usuarios(object):
 
             return "Busca feita com sucesso!"
         except:
-            return "Ocrreu um erro na busca do usuário"
+            return "Ocorreu um erro na busca do usuário"
